@@ -1,0 +1,3 @@
+name : женя
+amount : 3
+total cost : 55.0

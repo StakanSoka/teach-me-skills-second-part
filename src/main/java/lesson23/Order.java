@@ -1,5 +1,7 @@
 package lesson23;
 
+import java.util.Objects;
+
 public class Order {
 
     private String name;
@@ -28,6 +30,18 @@ public class Order {
 
     public void setTotalCost(double totalCost) {
         this.totalCost = totalCost;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order order)) return false;
+        return amount == order.amount && Double.compare(order.totalCost, totalCost) == 0 && Objects.equals(name, order.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, amount, totalCost);
     }
 
     @Override
